@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js'></script>
+    <script src="app.js"></script>
+    <title>Contact List</title>
+</head>
+<body ng-app="contactListApp">
+    <h1>Contact List</h1>
+    <h3>Bootstrapping Demo</h3>
+    <div>
+        <label for="inputText">Input: </label><input id="inputText" type="text" ng-model="inputText" placeholder="enter something..."/>
+        <br />
+        <label for="outputText">Output: </label><span id="outputText">{{inputText}}</span>
+    </div>
+</body>
+</html>
