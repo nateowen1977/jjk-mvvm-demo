@@ -1,15 +1,14 @@
 # jjk-mvvm-demo
 
-To get this running on a clone, execute the following until I get the package.json running correctly
-1. npm install express
-2. npm install body-parser
+<div>To get this running on a clone, execute the following until I get the package.json running correctly</div>
+<ol>
+    <li>npm install express</li>
+    <li>npm install body-parser</li>
+</ol>
 
-------------------------
-To run this continuously
-------------------------
-1. Install the supervisor package:
-    npm install supervisor -g
-2. Run using the below from the /server directory:
-    supervisor --harmony app.js
-
-    * this will relaunch the nodejs express app whenever a change to any file in the /server folder is made
+<h2>To run this continuously</h2>
+<ol>
+    <li>Install the supervisor package: npm install supervisor -g</li>
+    <li>Run using the below from the /server directory: supervisor --harmony app.js</li>
+</ol>
+<b><i>this will relaunch the nodejs express app whenever a change to any file in the /server folder is made</i></b>
