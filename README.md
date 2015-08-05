@@ -1,8 +1,8 @@
 # jjk-mvvm-demo
 
 To get this running on a clone, execute the following until I get the package.json running correctly
-npm install express
-npm install body-parser
+1. npm install express
+2. npm install body-parser
 
 ------------------------
 To run this continuously
