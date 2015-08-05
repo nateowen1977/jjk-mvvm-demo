@@ -13,9 +13,9 @@ var contacts = [
 
 app.use(express.static('client'));
 
-app.get('/', (req, res) => { res.send(contacts);});
+app.get('/api/contacts', (req, res) => { res.send(contacts);});
 
-app.get('/:id', (req,res) => {
+app.get('/api/contacts/:id', (req,res) => {
     var id = req.params.id;
     for(var contact of contacts){
         if(contact.Id == id){
@@ -24,16 +24,16 @@ app.get('/:id', (req,res) => {
         }
     }
 
-    res.status(400);
+    res.status(404);
     res.send('unknown contact @ id: ' +  id);
 });
 
-app.post('/', (req, res, next) => {
+app.post('/api/contacts', (req, res, next) => {
     var body = req.body;
     if(body.first && body.first.length > 0){
         if(body.last && body.last.length > 0){
             if(body.age && !isNaN(body.age)){
-                var contact = new Contact(contacts.length, body.first, body.last, parseInt(body.age));
+                var contact = new Contact(contacts.length + 1, body.first, body.last, parseInt(body.age));
                 contacts.push(contact);
                 res.status(201);
                 res.end();
@@ -42,7 +42,7 @@ app.post('/', (req, res, next) => {
     }
 });
 
-app.delete('/:id', (req, res) =>{
+app.delete('/api/contacts/:id', (req, res) =>{
     var id = req.params.id;
     if(id){
         var index = contacts.findIndex(x => x.Id == id);
@@ -53,7 +53,7 @@ app.delete('/:id', (req, res) =>{
         }
     }
 
-    res.status(400);
+    res.status(404);
     res.end();
 });
 
