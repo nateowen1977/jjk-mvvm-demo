@@ -13,11 +13,14 @@
             <h3>{{Model.Title}}</h3>
             <label for="txtFirst">First Name:</label><input type="text" id="txtFirst" ng-model="Model.Contact.FirstName"/></br />
             <label for="txtFirst">Last Name:</label><input type="text" id="txtLast" ng-model="Model.Contact.LastName"/><br/>
-            <button type="button" ng-click="clear()">Clear</button>
-            <hr/>
-            <span>{{Model.Contact.LastName}}, {{Model.Contact.FirstName}}</span>
+            <button type="button" ng-click="clear()">Clear</button>&nbsp;<button type="button" ng-click="save()">Save</button>
             <hr/>
             <span ng-show="Model.Contact.LastName != null && Model.Contact.FirstName !=null">{{Model.Contact.LastName}}, {{Model.Contact.FirstName}}</span>
+            <hr />
+            <div><b>Contacts</b></div>
+            <div ng-repeat="c in Model.ContactList">
+                {{c.LastName}}, {{c.FirstName}}
+            </div>
         </div>
     </body>
 </html>
