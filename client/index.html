@@ -9,11 +9,15 @@
 <html>
     <body ng-app="contactListApp">
         <h1>Contact List</h1>
-        <h3>Bootstrapping Demo</h3>
-        <div>
-            <label for="inputText">Input: </label><input id="inputText" type="text" ng-model="inputText" placeholder="enter something..."/>
-            <br />
-            <label for="outputText">Output: </label><span id="outputText">{{inputText}}</span>
+        <div ng-controller="contactListController">
+            <h3>{{Model.Title}}</h3>
+            <label for="txtFirst">First Name:</label><input type="text" id="txtFirst" ng-model="Model.Contact.FirstName"/></br />
+            <label for="txtFirst">Last Name:</label><input type="text" id="txtLast" ng-model="Model.Contact.LastName"/><br/>
+            <button type="button" ng-click="clear()">Clear</button>
+            <hr/>
+            <span>{{Model.Contact.LastName}}, {{Model.Contact.FirstName}}</span>
+            <hr/>
+            <span ng-show="Model.Contact.LastName != null && Model.Contact.FirstName !=null">{{Model.Contact.LastName}}, {{Model.Contact.FirstName}}</span>
         </div>
     </body>
 </html>
