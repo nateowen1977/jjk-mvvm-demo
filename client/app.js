@@ -1,26 +1,35 @@
 (function(){
-    var contactService = function(){
-        var contactList = [
-            {
-                FirstName: 'Nate',
-                LastName: 'Owen'
-            }
-        ];
-
+    var contactService = function($http, $q){
         return{
             Get: get,
             Save: save
         }
 
         function get(){
-            return contactList;
+            var deferred = $q.defer();
+            $http.get('/api/contacts')
+                .then(function(response){
+                    deferred.resolve(response.data);
+                })
+
+            return deferred.promise;
         }
 
         function save(first, last){
-            contactList.push({
-                FirstName: first,
-                LastName: last
-            });
+            var deferred = $q.defer();
+
+            var payload = {
+                first: first,
+                last: last,
+                age: 0
+            };
+
+            $http.post('/api/contacts', payload)
+                .then(function(){
+                    deferred.resolve();
+                });
+
+            return deferred.promise;
         }
     };
 
@@ -47,11 +56,18 @@
                     alert('enter a full name');
                 }
 
-                contactService.Save($scope.Model.Contact.FirstName, $scope.Model.Contact.LastName);
-                $scope.Model.ContactList = contactService.Get();
-                $scope.clear();
+                contactService.Save($scope.Model.Contact.FirstName, $scope.Model.Contact.LastName)
+                    .then(function(){
+                        contactService.Get().then(function(data){
+                            $scope.Model.ContactList = data;
+
+                        });
+                        $scope.clear();
+                    })
             }
 
-            $scope.Model.ContactList = contactService.Get();
+            contactService.Get().then(function(data){
+                $scope.Model.ContactList = data;
+            })
         });
 })();

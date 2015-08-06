@@ -32,14 +32,19 @@ app.post('/api/contacts', (req, res, next) => {
     var body = req.body;
     if(body.first && body.first.length > 0){
         if(body.last && body.last.length > 0){
-            if(body.age && !isNaN(body.age)){
+            if(!isNaN(body.age)){
                 var contact = new Contact(contacts.length + 1, body.first, body.last, parseInt(body.age));
                 contacts.push(contact);
+                console.log(contacts);
                 res.status(201);
                 res.end();
+                return;
             }
         }
     }
+
+    res.status(400);
+    res.end();
 });
 
 app.delete('/api/contacts/:id', (req, res) =>{
