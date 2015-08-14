@@ -7,7 +7,7 @@
                 ContactList : null
             };
 
-            $scope.save = function(contact){
+            $scope.saveContact = function(contact){
                 contactService.Save(contact.FirstName, contact.LastName, contact.Age)
                     .then(function(){
                         contactService.Get().then(function(data){
@@ -16,7 +16,7 @@
                     })
             };
 
-            $scope.delete = function(contact){
+            $scope.deleteContact = function(contact){
                 alert('deleting contact')
             }
 
