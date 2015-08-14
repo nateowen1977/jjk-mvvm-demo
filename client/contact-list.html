@@ -5,7 +5,9 @@
             <th>Last Name</th>
             <th>Age</th>
         </tr>
-        ${contacts.length}
+        <tr show.bind="contacts.length === 0">
+            <td colspan="3">No contacts found.</td>
+        </tr>
         <tr repeat.for="contact of contacts">
             <td>${contact.FirstName}</td>
             <td>${contact.LastName}</td>
