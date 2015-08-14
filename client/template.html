@@ -1,10 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
-
-</body>
-</html>
+<div>
+    <select ng-model="model.selectedHour" ng-options="opt.name for opt in model.hourOptions" style="height:30px; width:50px;"></select>
+    &colon;
+    <select ng-model="model.selectedMinute" ng-options="opt.name for opt in model.minuteOptions"style="height:30px; width:50px;"></select>
+    <button ng-click='changeMeridian()'>{{model.selectedMeridian}}</button>
+</div>

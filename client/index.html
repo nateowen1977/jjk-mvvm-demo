@@ -11,13 +11,8 @@
         <h1>Contact List</h1>
         <div ng-controller="contactListController">
             <h3>{{Model.Title}}</h3>
-            <label for="txtFirst">First Name:</label><input type="text" id="txtFirst" ng-model="Model.Contact.FirstName"/></br />
-            <label for="txtFirst">Last Name:</label><input type="text" id="txtLast" ng-model="Model.Contact.LastName"/><br/>
-            <button type="button" ng-click="clear()">Clear</button>
-            <hr/>
-            <span>{{Model.Contact.LastName}}, {{Model.Contact.FirstName}}</span>
-            <hr/>
-            <span ng-show="Model.Contact.LastName != null && Model.Contact.FirstName !=null">{{Model.Contact.LastName}}, {{Model.Contact.FirstName}}</span>
+            <h5>{{Model.Time}}</h5>
+            <time-picker time="Model.Time"/>
         </div>
     </body>
 </html>
