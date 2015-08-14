@@ -1,13 +1,19 @@
 <div>
     <h3>Contact Listing</h3>
     <table>
-        <tr>
+        <tr ng-show="contacts.length === 0">
+            <td colspan="3">No contacts found.</td>
+        </tr>
+        <tr ng-show="contacts.length > 0">
             <th>Name</th>
             <th>Age</th>
+            <th></th>
         </tr>
         <tr ng-repeat='c in contacts'>
             <td>{{c.LastName}}, {{c.FirstName}}</td>
             <td>{{c.Age}}</td>
+            <td><button ng-click="delete(c)">DELETE</button></td>
         </tr>
+
     </table>
 </div>

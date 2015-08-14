@@ -3,11 +3,12 @@
         .module('contactListApp')
         .service('contactService', function ($http, $q) {
             return {
-                Get: get,
-                Save: save
+                Get: getContact,
+                Save: saveContact,
+                Delete: deleteContact
             }
 
-            function get() {
+            function getContact() {
                 var deferred = $q.defer();
                 $http.get('/api/contacts')
                     .then(function (response) {
@@ -17,7 +18,7 @@
                 return deferred.promise;
             }
 
-            function save(first, last, age) {
+            function saveContact(first, last, age) {
                 var deferred = $q.defer();
 
                 var payload = {
@@ -26,7 +27,18 @@
                     age: age
                 };
 
-                $http.post('/api/contacts', payload)
+                $http.post('/api/contacts/', payload)
+                    .then(function () {
+                        deferred.resolve();
+                    });
+
+                return deferred.promise;
+            }
+
+            function deleteContact(id){
+                var deferred = $q.defer();
+
+                $http.delete('/api/contacts/' + id)
                     .then(function () {
                         deferred.resolve();
                     });

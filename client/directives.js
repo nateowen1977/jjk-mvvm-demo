@@ -7,7 +7,16 @@
             replace: 'true',
             templateUrl: 'templates/contact-list.html',
             scope: {
-                contacts: '='
+                contacts: '=',
+                onDelete: '&'
+            },
+            link: function(scope) {
+                scope.delete = function (contact) {
+                    //get reference to the parent controller's function that was bound to the directive
+                    var cb = this.onDelete();
+                    //call the function
+                    cb(contact);
+                }
             }
         };
     });
@@ -25,7 +34,8 @@
             restrict: 'E',
             replace: 'true',
             scope: {
-                age: '='
+                age: '=',
+                onDelete: '&'
             },
             template: '<select ng-model="age" ng-options="opt for opt in options" style="height:30px; width:50px;"></select>',
             controller: controller
@@ -42,7 +52,7 @@
                 onSave: '&'
             },
             templateUrl: 'templates/contact-edit.html',
-            link: function(scope, element, attrs){
+            link: function(scope){
                 scope.model = {
                     FirstName: null,
                     LastName: null,

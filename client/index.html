@@ -14,7 +14,7 @@
         <h1>Contact List</h1>
         <div ng-controller="contactListController">
             <h3>{{Model.Title}}</h3>
-            <contact-list contacts="Model.ContactList"></contact-list>
+            <contact-list contacts="Model.ContactList" on-delete="deleteContact"></contact-list>
             <hr/>
             <contact-form on-save="saveContact" />
         </div>

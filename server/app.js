@@ -51,7 +51,7 @@ app.delete('/api/contacts/:id', (req, res) =>{
     var id = req.params.id;
     if(id){
         var index = contacts.findIndex(x => x.Id == id);
-        if(index > 0) {
+        if(index >= 0) {
             contacts.splice(index, 1);
             res.status(200);
             res.send(contacts);

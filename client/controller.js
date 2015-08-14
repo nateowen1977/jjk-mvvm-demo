@@ -17,7 +17,12 @@
             };
 
             $scope.deleteContact = function(contact){
-                alert('deleting contact')
+                contactService.Delete(contact.Id)
+                    .then(function(){
+                        contactService.Get().then(function(data){
+                            $scope.Model.ContactList = data;
+                        });
+                    });
             }
 
             contactService.Get().then(function(data){
