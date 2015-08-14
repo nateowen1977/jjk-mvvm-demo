@@ -28,3 +28,6 @@ node_modules
 
 # ignore webstorm .idea directory
 .idea/
+
+# jspm_packages directory
+client/jspm_packages/
