@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js'></script>
     <script src="app.js"></script>
+    <script src="service.js"></script>
+    <script src="controller.js"></script>
+    <script src="directives.js"></script>
     <title>Contact List</title>
 </head>
 <html>
@@ -11,16 +14,9 @@
         <h1>Contact List</h1>
         <div ng-controller="contactListController">
             <h3>{{Model.Title}}</h3>
-            <label for="txtFirst">First Name:</label><input type="text" id="txtFirst" ng-model="Model.Contact.FirstName"/></br />
-            <label for="txtFirst">Last Name:</label><input type="text" id="txtLast" ng-model="Model.Contact.LastName"/><br/>
-            <button type="button" ng-click="clear()">Clear</button>&nbsp;<button type="button" ng-click="save()">Save</button>
+            <contact-list contacts="Model.ContactList"></contact-list>
             <hr/>
-            <span ng-show="Model.Contact.LastName != null && Model.Contact.FirstName !=null">{{Model.Contact.LastName}}, {{Model.Contact.FirstName}}</span>
-            <hr />
-            <div><b>Contacts</b></div>
-            <div ng-repeat="c in Model.ContactList">
-                {{c.LastName}}, {{c.FirstName}}
-            </div>
+            <contact-form on-save="save" />
         </div>
     </body>
 </html>

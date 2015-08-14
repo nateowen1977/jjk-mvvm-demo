@@ -1,0 +1,49 @@
+<div>
+    <style>
+        label{
+            float:left;
+            width:120px;
+            font-weight: bold;
+        }
+
+        input{
+            width: 180px;
+            margin-bottom: 5px;
+        }
+
+        .button{
+            margin-top: 5px;
+            width: 90px;
+        }
+
+        .submitButton{
+            margin-left: 120px;
+        }
+
+        .clearButton{
+            margin-left: 15px;
+        }
+
+        br{
+            clear: left;
+        }
+    </style>
+
+    <h3>Enter a new Contact</h3>
+    <form>
+        <label for="fname">First Name</label>
+        <input type="text" name="fname" ng-model="model.FirstName" />
+        <br />
+
+        <label for="lname">Last Name</label>
+        <input type="text" name="lname" ng-model="model.LastName" />
+        <br />
+
+        <label for="age">Age</label>
+        <age-selector name="age" age="model.Age"></age-selector>
+        <br />
+
+        <button class="button submitButton" ng-click="save()">SAVE</button>
+        <button ng-click="clear()" class="button clearButton">Clear</button>
+    </form>
+</div>
