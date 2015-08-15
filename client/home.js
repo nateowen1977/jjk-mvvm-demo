@@ -19,5 +19,4 @@ export class Home{
                 context.contacts = JSON.parse(response);
             })
     }
-
 }
