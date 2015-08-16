@@ -1,5 +1,53 @@
 <template>
-    ${title}
-    
-    <button click.delegate="save()">Save</button>
+    <require from="age-selector"></require>
+    <div>
+        <style>
+            label{
+                float:left;
+                width:120px;
+                font-weight: bold;
+            }
+
+            input{
+                width: 180px;
+                margin-bottom: 5px;
+            }
+
+            .button{
+                margin-top: 5px;
+                width: 90px;
+            }
+
+            .submitButton{
+                margin-left: 120px;
+            }
+
+            .clearButton{
+                margin-left: 15px;
+            }
+
+            br{
+                clear: left;
+            }
+        </style>
+
+        <h3>Enter a new Contact</h3>
+        <form>
+            <label for="fname">First Name</label>
+            <input type="text" name="fname" value.bind="contact.first" />
+            <br />
+
+            <label for="lname">Last Name</label>
+            <input type="text" name="lname" value.bind="contact.last" />
+            <br />
+
+            <label for="age">Age</label>
+            <age-selector age="contact.age"></age-selector>
+            <br />
+
+            <button class="button submitButton" click.delegate="save()">SAVE</button>
+            <button click.delegate="clear()" class="button clearButton">Clear</button>
+        </form>
+    </div>
+
 </template>
