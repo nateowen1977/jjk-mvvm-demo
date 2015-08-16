@@ -1,7 +1,6 @@
 import {bindable} from 'aurelia-framework';
 
 export class ContactEdit{
-    title = "contact edit";
     contact = {
         first: null,
         last: null,
@@ -9,14 +8,24 @@ export class ContactEdit{
     };
 
     save(){
-        this.contact.age = 38;
         if(this.contact.first && this.contact.last && this.contact.first.length > 0 && this.contact.last.length > 0 && this.contact.age){
             this.parent.addContact(this.contact);
+            this.contact = {
+                first: null,
+                last: null,
+                age: null
+            };
+        } else{
+            alert('you must enter a first and last name and select an age.');
         }
     }
 
     clear(){
-        this.contact = null;
+        this.contact = {
+            first: null,
+            last: null,
+            age: null
+        };
     }
 
     bind(bindingContext){

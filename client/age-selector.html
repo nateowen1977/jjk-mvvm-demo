@@ -1,5 +1,5 @@
 <template>
-    <select value.bind="age">
+    <select value.bind="parent.contact.age">
         <option></option>
         <option repeat.for="a of ages" value.bind="a">${a}</option>
     </select>

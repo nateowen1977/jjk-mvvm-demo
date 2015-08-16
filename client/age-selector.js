@@ -1,12 +1,15 @@
 import {bindable} from 'aurelia-framework';
 
 export class AgeSelector {
-    @bindable age;
     constructor() {
         var ages = [];
-        for (var age = 18; age <= 65; age++) {
-            ages.push(age);
+        for (var a = 18; a <= 65; a++) {
+            ages.push(a);
         }
         this.ages = ages;
+    }
+
+    bind(bindingContext){
+        this.parent = bindingContext;
     }
 }
