@@ -26,8 +26,8 @@ export class ContactsApi{
         var http = this.http;
         var promise = new Promise((resolve, reject) =>{
             http.post('/api/contacts/', contact)
-                .then(() => {
-                    resolve();
+                .then((httpResponse) => {
+                    resolve(httpResponse.response);
                 })
                 .catch(() => { reject(); });
         });

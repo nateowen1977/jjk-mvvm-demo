@@ -9,6 +9,15 @@ export class Home{
         this.contacts = [];
     }
 
+    addContact(contact){
+        var context = this;
+        this.ContactsApi.saveContact(contact)
+            .then(response =>{
+                var c = JSON.parse(response);
+                context.contacts.push(c);
+            })
+    }
+
     //this is called when the class is instantiated
     bind(){
         //need to get a reference to 'this' context as 'this' will not be

@@ -36,7 +36,7 @@ app.post('/api/contacts', (req, res, next) => {
                 var contact = new Contact(contacts.length + 1, body.first, body.last, parseInt(body.age));
                 contacts.push(contact);
                 res.status(201);
-                res.end();
+                res.send(contact);
             }
         }
     }
