@@ -14,9 +14,20 @@
         <h1>Contact List</h1>
         <div ng-controller="contactListController">
             <h3>{{Model.Title}}</h3>
-            <contact-list contacts="Model.ContactList" on-delete="deleteContact"></contact-list>
-            <hr/>
-            <contact-form on-save="saveContact" />
+            <table>
+                <tr ng-show="Model.ContactList.length === 0">
+                    <td colspan="3">No contacts found.</td>
+                </tr>
+                <tr ng-show="Model.ContactList.length > 0">
+                    <th>Name</th>
+                    <th>Age</th>
+                </tr>
+                <tr ng-repeat='c in Model.ContactList'>
+                    <td>{{c.LastName}}, {{c.FirstName}}</td>
+                    <td>{{c.Age}}</td>
+                </tr>
+
+            </table>
         </div>
     </body>
 </html>
