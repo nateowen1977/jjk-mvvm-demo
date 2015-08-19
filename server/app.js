@@ -1,6 +1,6 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var Contact = require('./dto/Contact');
+var Contact = require('./dto/contact');
 
 var app = express();
 app.use(bodyParser.urlencoded({extended: false }));
